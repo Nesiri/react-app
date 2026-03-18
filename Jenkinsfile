@@ -30,12 +30,17 @@ pipeline {
                     reuseNode true
                 }
             }
-            steps {
+           steps {
                 sh '''
-                echo "Running tests..."
-                npm test -- --watchAll=false
+                if test -f build/index.html; then
+                    echo " running tests..."
+                    npm test
+                else
+                    echo "❌ build/index.html not found! Build may have failed."
+                    exit 1
+                fi
                 '''
-            }
+           }
         }
     }
     
