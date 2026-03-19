@@ -39,7 +39,7 @@ pipeline {
                     echo " running tests..."
                     npm test
                 else
-                    echo "❌ build/index.html not found! Build may have failed."
+                    echo " build/index.html not found! Build have failed."
                     exit 1
                 fi
                 '''
